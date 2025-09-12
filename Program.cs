@@ -261,7 +261,7 @@ namespace Feladatsor
             double r = d / 2;
 
             Console.WriteLine($"A kör kerülete: {d * Math.PI}");
-            Console.WriteLine($"A kör területe: ");
+            Console.WriteLine($"A kör területe: {(r*r) * Math.PI}");
         }
 
         static void Main(string[] args)
