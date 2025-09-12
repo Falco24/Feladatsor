@@ -264,6 +264,121 @@ namespace Feladatsor
             Console.WriteLine($"A kör területe: {(r*r) * Math.PI}");
         }
 
+        static void F14()
+        {
+            Console.WriteLine("14. Feladat");
+
+            double r = TortBekeres();
+            double alfa = TortBekeres();
+
+            Console.WriteLine($"Körcikkiv hossza: {2 * r * Math.PI * (alfa / 360)}");
+            Console.WriteLine($"Körcikk területe: {(r*r*alfa)/2}");
+        }
+
+        static void F15()
+        {
+            Console.WriteLine("15. Feladat");
+
+            int szam = Bekeres();
+            int szamlalo = 0;
+
+            for (int i = 0; i <= szam; i++)
+            {
+                Console.Write($"{szamlalo} ");
+                szamlalo++;
+            }
+        }
+
+        static void F16()
+        {
+            Console.WriteLine("16. Feladat");
+
+            int szam = Bekeres();
+
+            for (int i = 0; i <= szam; i++)
+            {
+                Console.WriteLine($"{i} ");
+            }
+        }
+
+        static void F17()
+        {
+            Console.WriteLine("17. Feladat");
+
+            int szam = Bekeres();
+
+            for (int i = 1; i <= szam; i++)
+            {
+                if (szam % i == 0)
+                {
+                    
+                    Console.Write($"{i} ");
+                }
+
+            }
+        }
+
+        static void F18()
+        {
+            Console.WriteLine("18. Feladat");
+
+            int szam = Bekeres();
+            int szamlalo = 0;
+
+            for (int i = 1; i <= szam; i++)
+            {
+                if (szam % i == 0)
+                {
+                    szamlalo += 1;
+                    
+                }
+
+            }
+            Console.WriteLine($"A szám osztóinak összege: {szamlalo}");
+        }
+
+        static void F19()
+        {
+            Console.WriteLine("19. Feladat");
+
+            int szam = Bekeres();
+            int ossz = 0;
+            for (int i = 1; i <= szam; i++)
+            {
+                if ((szam % i) == 0)
+                {
+                    ossz += 1;
+                }
+            }
+            if (ossz == 2 * szam)
+            {
+                Console.WriteLine("Ez egy tökéletes szám");
+            }
+            else
+            {
+                Console.WriteLine("Ez nem egy tökéletes szám");
+            }
+        }
+
+        static void F20()
+        {
+            Console.WriteLine("20. Feladat");
+
+
+            int alap = Bekeres();
+            int kitevo = Bekeres();
+
+            if (alap > 0 && kitevo > 0)
+            {
+                Console.WriteLine($"Hatványérték: {Math.Pow(alap, kitevo)}");
+            }
+            else
+            {
+                Console.WriteLine("Egész pozitív számot kell megadni");
+            }
+
+        }
+
         static void Main(string[] args)
         {
             //F1();
@@ -278,7 +393,14 @@ namespace Feladatsor
             //F10();
             //F11();
             //F12();
-            F13();
+            //F13();
+            //F14();
+            //F15();
+            //F16();
+            //F17();
+            //F18();
+            //F19();
+            F20();
         }
     }
 }
