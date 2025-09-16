@@ -1,13 +1,14 @@
 ﻿using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace Feladatsor
 {
     internal class Program
     {
 
-        static int Bekeres()
+        static int Bekeres(string q)
         {
-            Console.Write("Adj meg egy számot: ");
+            Console.Write(q);   
             int? number = null;
             do
             {
@@ -28,15 +29,15 @@ namespace Feladatsor
             return (int)number;
         }
 
-        static double TortBekeres()
+        static double TortBekeres(string d)
         {
-            Console.Write("Adj meg egy számot: ");
+            Console.Write(d);
             double? number = null;
             do
             {
                 try
                 {
-                    number = double.Parse(Console.ReadLine()!);
+                    number = double.Parse(Console.ReadLine()!.Replace('.',','));
                 }
                 catch (FormatException)
                 {
@@ -54,7 +55,7 @@ namespace Feladatsor
         static void F1()
         {
             Console.WriteLine("1. Feladat");
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello, world!");
         }
 
         static void F2()
@@ -97,8 +98,8 @@ namespace Feladatsor
 
         static void F4()
         {
-            int a = Bekeres();
-            int b = Bekeres();
+            int a = Bekeres("Kérem az első számot: ");
+            int b = Bekeres("Kérem a második számot: ");
             Console.WriteLine("4. Feladat");
             Console.WriteLine($"A két szám összege: {a + b}");
             Console.WriteLine($"A két szám külömbsége: {a - b}");
@@ -117,8 +118,8 @@ namespace Feladatsor
         static void F5()
         {
             Console.WriteLine("5. Feladat");
-            int a = Bekeres();
-            int b = Bekeres();
+            int a = Bekeres("Kérem az első számot: ");
+            int b = Bekeres("Kérem a második számot: ");
 
             if ( a > b )
             {
@@ -134,9 +135,9 @@ namespace Feladatsor
         {
             Console.WriteLine("6. Feladat");
 
-            int a = Bekeres();
-            int b = Bekeres();
-            int c = Bekeres();
+            int a = Bekeres("Háromszög a oldala: ");
+            int b = Bekeres("Háromszög b oldala: ");
+            int c = Bekeres("Háromszög c oldala");
             int[] t = new int[3];
             t[0] = a;
             t[1] = b;
@@ -151,9 +152,9 @@ namespace Feladatsor
         {
             Console.WriteLine("7. Feladat");
 
-            int a = Bekeres();
-            int b = Bekeres();
-            int c = Bekeres();
+            int a = Bekeres("Add meg az általános háromszög a oldalát: ");
+            int b = Bekeres("Add meg az általános háromszög b oldalát: ");
+            int c = Bekeres("Add meg az általános háromszög c oldalát: ");
             int[] t = new int[3];
             t[0] = a;
             t[1] = b;
@@ -177,8 +178,8 @@ namespace Feladatsor
             Console.WriteLine("8. Feladat");
 
 
-            int a = Bekeres();
-            int b = Bekeres();
+            int a = Bekeres("Kérem az első számot: ");
+            int b = Bekeres("Kérem a második számot: ");
 
             if (a >= 0 && b >= 0)
             {
@@ -195,25 +196,25 @@ namespace Feladatsor
         static void F9()
         {
             Console.WriteLine("Feladat 9.");
-            int a = Bekeres();
-            int b = Bekeres();
-            int c = Bekeres();
+            int a = Bekeres("Kérem az első számot: ");
+            int b = Bekeres("Kérem a második számot: ");
+            int c = Bekeres("Kérem a harmadik számot: ");
             if (b * b - 4 * a * c >= 0)
             {
                 Console.WriteLine("A másodfokú egyenletnek van értéke");
             }
             else
             {
-                Console.WriteLine("Nem értelmezhető");
+                Console.WriteLine("Nem értelmezhető a valós számok halmazán.");
             }
         }
 
         static void F10()
         {
             Console.WriteLine("10. Feladat");
-            int a = Bekeres();
-            int b = Bekeres();
-            int c = Bekeres();
+            int a = Bekeres("Kérem az első számot: ");
+            int b = Bekeres("Kérem a második számot: ");
+            int c = Bekeres("Kérem a harmadik számot: ");
             int differens = (int)Math.Round(Math.Sqrt(b * b - 4 * a * c), 4);
             if (b * b - 4 * a * c >= 0)
             {
@@ -233,8 +234,8 @@ namespace Feladatsor
         static void F11()
         {
             Console.WriteLine("11. Feladat");
-            double a = TortBekeres();
-            double b = TortBekeres();
+            double a = TortBekeres("Add meg a derékszögű háromszög egyik befogóját: ");
+            double b = TortBekeres("Add meg a derékszögű háromszög másik befogóját: ");
             double c = a*a + b*b;
 
             Console.WriteLine($"A derékszögű háromszög átfogoja: {Math.Sqrt(Math.Round(c, 2))}");
@@ -244,9 +245,9 @@ namespace Feladatsor
         {
             Console.WriteLine("12. Feladat");
 
-            double a = TortBekeres();
-            double b = TortBekeres();
-            double c = TortBekeres();
+            double a = TortBekeres("Add meg a téglatest a oldalát centiméterben: ");
+            double b = TortBekeres("Add meg a téglatest b oldalát centiméterben: ");
+            double c = TortBekeres("Add meg a téglatest c oldalát centiméterben: ");
 
             Console.WriteLine($"A téglatest térfogata: {a * b * c} köbcentiméter");
             Console.WriteLine($"A téglatest felszíne: {2 * (a * b + a * c + b * c)} négyzetcentiméter");
@@ -257,7 +258,7 @@ namespace Feladatsor
             Console.WriteLine("13. Feladat");
 
 
-            double d = TortBekeres();
+            double d = TortBekeres("Add meg a kör átmérőjét: ");
             double r = d / 2;
 
             Console.WriteLine($"A kör kerülete: {d * Math.PI}");
@@ -268,8 +269,8 @@ namespace Feladatsor
         {
             Console.WriteLine("14. Feladat");
 
-            double r = TortBekeres();
-            double alfa = TortBekeres();
+            double r = TortBekeres("Add meg a kör sugarát: ");
+            double alfa = TortBekeres("Add meg a körcikk szögének fokát: ");
 
             Console.WriteLine($"Körcikkiv hossza: {2 * r * Math.PI * (alfa / 360)}");
             Console.WriteLine($"Körcikk területe: {(r*r*alfa)/2}");
@@ -279,7 +280,7 @@ namespace Feladatsor
         {
             Console.WriteLine("15. Feladat");
 
-            int szam = Bekeres();
+            int szam = Bekeres("Addj meg egy számot ameddig ki akarod iratni az elötte lévő egész számokat: ");
             int szamlalo = 0;
 
             for (int i = 0; i <= szam; i++)
@@ -293,7 +294,7 @@ namespace Feladatsor
         {
             Console.WriteLine("16. Feladat");
 
-            int szam = Bekeres();
+            int szam = Bekeres("Addj meg egy számot ameddig ki akarod iratni az elötte lévő egész számokat egymás alá: ");
 
             for (int i = 0; i <= szam; i++)
             {
@@ -305,7 +306,7 @@ namespace Feladatsor
         {
             Console.WriteLine("17. Feladat");
 
-            int szam = Bekeres();
+            int szam = Bekeres("Adj meg egy számot melynek az osztóit szeretnéd tudni: ");
 
             for (int i = 1; i <= szam; i++)
             {
@@ -322,7 +323,7 @@ namespace Feladatsor
         {
             Console.WriteLine("18. Feladat");
 
-            int szam = Bekeres();
+            int szam = Bekeres("Adj meg egy számot melynek az osztóinak összegét szeretnéd látni: ");
             int szamlalo = 0;
 
             for (int i = 1; i <= szam; i++)
@@ -341,7 +342,7 @@ namespace Feladatsor
         {
             Console.WriteLine("19. Feladat");
 
-            int szam = Bekeres();
+            int szam = Bekeres("Adj meg egy számot amiről megszeretnéd tudni hogy tökéletes szám e: ");
             int ossz = 0;
             for (int i = 1; i <= szam; i++)
             {
@@ -365,8 +366,8 @@ namespace Feladatsor
             Console.WriteLine("20. Feladat");
 
 
-            int alap = Bekeres();
-            int kitevo = Bekeres();
+            int alap = Bekeres("Add meg az alap számot: ");
+            int kitevo = Bekeres("Add meg a kitevőjét: ");
 
             if (alap > 0 && kitevo > 0)
             {
@@ -379,6 +380,57 @@ namespace Feladatsor
 
         }
 
+        static void F21()
+        {
+            Console.WriteLine("21. Feladat");
+
+            double num = TortBekeres("Adj meg egy pozitív számot: ");
+
+            if (num > 0)
+            {
+                Console.WriteLine("Ez egy pozitív szám!");
+            }
+            else
+            {
+                Console.WriteLine("Ez a szám nem egy pozitív szám!");
+            }
+        }
+
+        static void F22()
+        {
+            Console.WriteLine("22. Feladat");
+            double num = 0;
+            double sum = 0;
+
+            while (num < 10)
+            {
+                num = TortBekeres("Adj meg egy számot ami kisebb mint tíz: ");
+                sum += num;
+            }
+            Console.WriteLine($"Ez az eddigi megadott számoknak az összege: {sum}");
+        }
+
+
+        static void F23()
+        {
+            Console.WriteLine("23. Feladat");
+
+
+            int num = Bekeres("Kérek egy egész számot: ");
+            bool div = true;
+
+            while (div)
+            {
+                if (num % 2 == 0)
+                {
+                    
+                }
+                else
+                {
+                    div = false;
+                }
+            }
+        }
         static void Main(string[] args)
         {
             //F1();
@@ -400,7 +452,10 @@ namespace Feladatsor
             //F17();
             //F18();
             //F19();
-            F20();
+            //F20();
+            //F21();
+            //F22();
+            F23();
         }
     }
 }
