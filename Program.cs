@@ -52,6 +52,30 @@ namespace Feladatsor
             return (double)number;
         }
 
+        static double Prim(double sz)
+        {
+            int count = 1;
+            for (int i = 1; i < sz; i++)
+            {
+                if (sz % i == 0)
+                {
+                    count++;
+
+                }
+            }
+            if (count == 2)
+            {
+                Console.Write("Ez egy prímszám: ");
+                return sz;
+            }
+            else
+            {
+                Console.Write("Ez nem egy prímszám: ");
+                return sz;
+            }
+        }
+
+
         static void F1()
         {
             Console.WriteLine("1. Feladat");
@@ -348,7 +372,7 @@ namespace Feladatsor
             {
                 if ((szam % i) == 0)
                 {
-                    ossz += 1;
+                    ossz += i;
                 }
             }
             if (ossz == 2 * szam)
@@ -405,7 +429,11 @@ namespace Feladatsor
             while (num < 10)
             {
                 num = TortBekeres("Adj meg egy számot ami kisebb mint tíz: ");
-                sum += num;
+                if (num < 10)
+                {
+                    sum += num;
+                    
+                }
             }
             Console.WriteLine($"Ez az eddigi megadott számoknak az összege: {sum}");
         }
@@ -423,12 +451,135 @@ namespace Feladatsor
             {
                 if (num % 2 == 0)
                 {
-                    
+                    Console.Write($"2*");
+                    num /= 2;
                 }
                 else
                 {
+                    Console.Write($"{num}");
                     div = false;
                 }
+            }
+        }
+
+        static void F24()
+        {
+            Console.WriteLine("24. Feladat");
+
+            Console.Write("Írd be az alma szót: ");
+            string input = Console.ReadLine()!;
+
+            while (input != "alma")
+            {
+                Console.Write("Nem jó, próbáld újra: ");
+                input = Console.ReadLine()!;
+            }
+            Console.WriteLine("Az alma gyümölcs!");
+
+        }
+
+        static void F25()
+        {
+            Console.WriteLine("25. Feladat");
+
+
+            int num = Bekeres("Kérek egy egész számot: ");
+            bool minus = true;
+            int numm = num;
+            int szor = 0;
+            
+            while (minus)
+            {
+                if (numm > 3)
+                {
+                    numm -= 3;
+                    szor++;
+                    if (numm < 3)
+                    {
+                        minus = false;
+                        Console.WriteLine($"{num} = {szor}*3+{num%3}");
+                        break;
+                    }
+                }
+            }
+        }
+
+        static void F26()
+        {
+            Console.WriteLine("26. Feladat");
+
+            int num = Bekeres("Kérek egy számot, amiről megakarod tudni hogy prím-e: ");
+            int count = 0;
+            for (int i = 1; i <= num; i++)
+            {
+                if (num % i == 0)
+                {
+                    count++;
+                }
+            }
+            if (count > 2)
+            {
+                Console.WriteLine("Ez nem egy prímszám");
+            }
+            else
+            {
+                Console.WriteLine("Ez egy prímszám");
+            }
+        }
+
+
+        static void F27()
+        {
+            Console.WriteLine("27. Feladat");
+
+            int num = Bekeres("Kérek egy számot, ameddig szeretnéd tudni a prímszámokat: ");
+
+            for (int i = 1; i <= num; i++)
+            {
+                Console.WriteLine(Prim(i));   
+            }
+        }
+
+        static void F28()
+        {
+            Console.WriteLine("28. Feladat");
+
+            int num = Bekeres("Kérek egy számot prím felbontásra: ");
+            int count = 1;
+            Console.WriteLine("Ezek a számok a prímosztói a megadott számnak:");
+            for (int i = 1; i < num; i++)
+            {
+                if (num % i == 0)
+                {
+                    for (int j = 1; j < i; j++)
+                    {
+                        if (i % j == 0)
+                        {
+                            count++;
+
+                        }
+                        
+                    }
+                    if (count == 2)
+                    {
+                        Console.Write($"{i} ");
+
+                    }
+                    count = 1;
+                }
+            }
+            
+
+        }
+
+        static void F29()
+        {
+            Console.WriteLine("29. Feladat");
+
+            int num = Bekeres("Kérek egy számot prím felbontásra: ");
+            for (int i = 1; i < num; i++)
+            {
+
             }
         }
         static void Main(string[] args)
@@ -455,7 +606,13 @@ namespace Feladatsor
             //F20();
             //F21();
             //F22();
-            F23();
+            //F23();
+            //F24();
+            //F25();
+            //F26();
+            //F27();
+            //F28();
+            F29();
         }
     }
 }
