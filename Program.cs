@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Runtime.CompilerServices;
+using System.Runtime.ExceptionServices;
 
 namespace Feladatsor
 {
@@ -577,9 +578,145 @@ namespace Feladatsor
             Console.WriteLine("29. Feladat");
 
             int num = Bekeres("Kérek egy számot prím felbontásra: ");
-            for (int i = 1; i < num; i++)
-            {
+            bool fin = true;
 
+            while (fin)
+            {
+                if (num % 2 == 0)
+                {
+
+                }
+            }
+        }
+
+        static void F32()
+        {
+            Console.WriteLine("32. Feladat");
+
+            int num = Bekeres("Addj egy olyan számot amilyen alapú szorzó táblát szeretnél: ");
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{num} * {i} = {num * i}");
+            }
+        }
+
+        static void F33()
+        {
+            Console.WriteLine("33. Feladat");
+
+            int num = Bekeres("Addj egy olyan számot amilyen alapú összeg táblát szeretnél: ");
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{num} + {i} = {num + i}");
+            }
+        }
+
+        static void F34()
+        {
+            Console.WriteLine("34. Feladat");
+            int fnum = 0;
+            int lnum = 0;
+            for (int i = 10; i <= 100; i++)
+            {
+                for (int j = 100; j >= 10; j--)
+                {
+                    fnum = i / 10 + (i%10) * 10;
+                    lnum = i % 10 + (i/10) * 10;
+
+                    if (i * j == fnum * lnum)
+                    {
+                        Console.WriteLine($"{i} * {j} = {fnum * lnum} = {fnum} * {lnum}");
+                        fnum = 0;
+                        lnum = 0;
+                    }
+                }
+            }
+        }
+
+
+        static void F35()
+        {
+            Console.WriteLine("35. Feladat");
+
+            for (int i = 97; i <= 122; i++)
+            {
+                
+                Console.WriteLine($"{i} {(char)i}");
+            }
+        }
+
+        static void F36()
+        {
+            Console.WriteLine("36. Feladat");
+            
+            int num = 2;
+
+            for (int i = 1; i < 7; i++)
+            {
+                
+                for (int j = 1; j < 4; j++)
+                {
+                    if (num % 2 == 0)
+                    {
+                        Console.Write("X");
+                        Console.Write("O");
+                    }
+                    if (num % 2 != 0)
+                    {
+                        Console.Write("O");
+                        Console.Write("X");
+                    }
+
+                }
+                Console.WriteLine();
+                num = num + 1;
+            }
+        }
+
+
+        static void F37()
+        {
+            Console.WriteLine("37. Feladat");
+
+            int a = Bekeres("Kérek egy természetes számot, amely a piramis sorainak számát jelöli: ");
+            bool first = true;
+            for (int i = 1; i <= a; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    if (first)
+                    {
+                        Console.Write("*");
+                        first = false;
+                        Console.WriteLine();
+                    }
+                    Console.Write("***");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        static void F38()
+        {
+            Console.WriteLine("38. Feladat");
+
+            Console.WriteLine("37. Feladat");
+
+            int a = Bekeres("Kérek egy természetes számot, amely a piramis sorainak számát jelöli: ");
+
+            for (int i = 1; i <= a; i++)
+            {
+                for (int j = 1; j <= a - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 1; k <= (2 * i - 1); k++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
             }
         }
         static void Main(string[] args)
@@ -612,7 +749,14 @@ namespace Feladatsor
             //F26();
             //F27();
             //F28();
-            F29();
+            //F29();
+            //F32();
+            //F33();
+            //F34();
+            //F35();
+            //F36();
+            F37();
+            //F38();
         }
     }
 }
